@@ -45,7 +45,7 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 			console.log(user);
 
 			// Make the request to the server ... which doesn't exist just yet
-			var request = $http.post('#/signup', user);
+			var request = $http.post('/#/signup', user);
 
 			request.success(function (data) {
 				console.log(data);
