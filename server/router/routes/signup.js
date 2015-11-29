@@ -16,7 +16,11 @@ router.post('/', function (req, res) {
     var body = req.body;
     // Current time this occurred
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-
+	if(!Users){
+		res.status(500).json({
+			'message':'No Users'
+		});
+	}
     // Check to see if the user already exists
     Users.findOne({
         
@@ -34,7 +38,7 @@ router.post('/', function (req, res) {
                 'message': 'Internal server error from signing up new user. Please contact support@yourproject.com.'
             });
         }
-
+	
         // If the user doesn't exist then create one
         if (!user) {
             console.log('Creating a new user at ' + color.green(time) + ' with the email: ' + color.green(body.email));
