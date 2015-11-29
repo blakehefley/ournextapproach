@@ -8,12 +8,10 @@ var db = require('./database');
 
 var app = express();
 
-app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(favicon(path.join(__dirname, '../client/app', 'favicon.ico')));
 
 /**
  * Development Settings
