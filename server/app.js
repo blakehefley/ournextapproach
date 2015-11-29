@@ -48,6 +48,9 @@ if (app.get('env') === 'production') {
 }
 // production error handler
 // no stacktraces leaked to user
-
+/**
+ * Routes
+ */
+app.use('/signup', signup);
 
 module.exports = app;
