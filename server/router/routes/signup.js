@@ -11,18 +11,17 @@ var Users = db.users;
 
 // The POST /signup route
 router.post('/', function (req, res) {
-
+    
     // The posted information from the front-end
     var body = req.body;
     // Current time this occurred
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
 
     // Check to see if the user already exists
-    // using their email address
     Users.findOne({
-
+        
         'email': body.email
-
+    
     }, function (err, user) {
 
         // If there's an error, log it and return to user
@@ -31,13 +30,12 @@ router.post('/', function (req, res) {
             // Nice log message on your end, so that you can see what happened
             console.log('Couldn\'t create new user at ' + color.red(time) + ' by ' + color.red(body.email) + ' because of: ' + err);
 
-            // send the error
             res.status(500).json({
                 'message': 'Internal server error from signing up new user. Please contact support@yourproject.com.'
             });
         }
 
-        // If the user doesn't exist, create one
+        // If the user doesn't exist then create one
         if (!user) {
             console.log('Creating a new user at ' + color.green(time) + ' with the email: ' + color.green(body.email));
 
@@ -81,5 +79,4 @@ router.post('/', function (req, res) {
 
 });
 
-// export the router for usage in our server/router/index.js
 module.exports = router;

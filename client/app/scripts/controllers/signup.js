@@ -1,3 +1,4 @@
+/* globals alert */
 'use strict';
 
 angular.module('clientApp') // make sure this is set to whatever it is in your client/scripts/app.js
@@ -7,7 +8,7 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 		// so that we don't have to type $scope every
 		// damn time
 		var user,
-				signup;
+			signup;
 
 		// Here we're creating a scope for our Signup page.
 		// This will hold our data and methods for this page.
@@ -47,11 +48,11 @@ angular.module('clientApp') // make sure this is set to whatever it is in your c
 			var request = $http.post('/signup', user);
 
 			request.success(function (data) {
-			    console.log(data); // <-- changed
+				console.log(data);
 			});
 
 			request.error(function (data) {
-			    console.log(data); // <-- changed
+				console.log(data);
 			});
 
 		};
