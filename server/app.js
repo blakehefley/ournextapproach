@@ -5,9 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
 // view engine setup
@@ -48,9 +45,10 @@ if (app.get('env') === 'production') {
 }
 // production error handler
 // no stacktraces leaked to user
-/**
- * Routes
- */
-app.use('/signup', signup);
+var router = require('.router')(app);
+
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+});
 
 module.exports = app;
