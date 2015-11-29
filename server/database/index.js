@@ -6,7 +6,7 @@ var UserModel = require('./schemas/users');
 
 // Connections
 var developmentDb = 'mongodb://localhost/test';
-var productionDb = '../data/db/';
+var productionDb = 'mongodb://localhost/test';
 var usedDb;
 
 // If we're in development...
